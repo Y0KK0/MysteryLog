@@ -23,6 +23,8 @@
 		EAC1AFCC2680E5D000644F45 /* MysteryLogUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AFCB2680E5D000644F45 /* MysteryLogUITests.swift */; };
 		EAC1AFDA2680E5F200644F45 /* HomeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAC1AFD92680E5F200644F45 /* HomeViewController.swift */; };
 		EAC1AFDC2680E5FF00644F45 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = EAC1AFDB2680E5FF00644F45 /* Main.storyboard */; };
+		EAE446DF26823424002A106F /* HomeTableCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EAE446DD26823424002A106F /* HomeTableCardViewCell.swift */; };
+		EAE446E026823424002A106F /* HomeTableCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EAE446DE26823424002A106F /* HomeTableCardViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -71,6 +73,8 @@
 		EAC1AFCD2680E5D000644F45 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		EAC1AFD92680E5F200644F45 /* HomeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeViewController.swift; sourceTree = "<group>"; };
 		EAC1AFDB2680E5FF00644F45 /* Main.storyboard */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.storyboard; path = Main.storyboard; sourceTree = "<group>"; };
+		EAE446DD26823424002A106F /* HomeTableCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTableCardViewCell.swift; sourceTree = "<group>"; };
+		EAE446DE26823424002A106F /* HomeTableCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTableCardViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -158,9 +162,11 @@
 				EAC1AFB22680E5D000644F45 /* Assets.xcassets */,
 				EAC1AFB42680E5D000644F45 /* LaunchScreen.storyboard */,
 				EAC1AFB72680E5D000644F45 /* Info.plist */,
-				EABD98062681927400F694E8 /* HomeCardViewCell.swift */,
 				EABD980C2681A37E00F694E8 /* TabBarController.swift */,
+				EABD98062681927400F694E8 /* HomeCardViewCell.swift */,
 				EABD98072681927400F694E8 /* HomeCardViewCell.xib */,
+				EAE446DD26823424002A106F /* HomeTableCardViewCell.swift */,
+				EAE446DE26823424002A106F /* HomeTableCardViewCell.xib */,
 			);
 			path = MysteryLog;
 			sourceTree = "<group>";
@@ -291,6 +297,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				EAE446E026823424002A106F /* HomeTableCardViewCell.xib in Resources */,
 				EABD98092681927400F694E8 /* HomeCardViewCell.xib in Resources */,
 				EAC1AFDC2680E5FF00644F45 /* Main.storyboard in Resources */,
 				EAC1AFB62680E5D000644F45 /* LaunchScreen.storyboard in Resources */,
@@ -426,6 +433,7 @@
 				EABD980B2681A05500F694E8 /* UIColor-Extension.swift in Sources */,
 				EABD98082681927400F694E8 /* HomeCardViewCell.swift in Sources */,
 				EAC1AFAA2680E5CE00644F45 /* AppDelegate.swift in Sources */,
+				EAE446DF26823424002A106F /* HomeTableCardViewCell.swift in Sources */,
 				EABD980D2681A37E00F694E8 /* TabBarController.swift in Sources */,
 				EAC1AFAC2680E5CE00644F45 /* SceneDelegate.swift in Sources */,
 				EAC1AFDA2680E5F200644F45 /* HomeViewController.swift in Sources */,

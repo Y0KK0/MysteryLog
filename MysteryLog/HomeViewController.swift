@@ -45,10 +45,10 @@ class HomeViewController: UIViewController{
 
         homeCardView.delegate = self
         homeCardView.dataSource = self
-//        homeCardView.layer.cornerRadius = 15
-        
         let nib = UINib(nibName: "HomeCardViewCell", bundle: .main)
         homeCardView.register(nib, forCellWithReuseIdentifier: "homeCardCell")
+        let cardnib = UINib(nibName: "HomeTableCardViewCell", bundle: .main)
+        myMysteryTableView.register(cardnib, forCellReuseIdentifier: cellID)
         //スクロールバーを削除する
         self.myMysteryTableView.showsVerticalScrollIndicator = false;
         self.homeCardView.showsHorizontalScrollIndicator = false;
@@ -88,7 +88,8 @@ class HomeViewController: UIViewController{
 
 extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 1
+        return 2
+        
     }
 
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -128,16 +129,16 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return 90
+        return 80
     }
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return 5 // 普通はここで表示したいセルの数を返すが、セクションのヘッダーとフッターでスペーシングしているので、固定で1を返す
+        return 10
     }
     
     
     func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
             return 44 // 適当なセルの高さ
-        }
+    }
     private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
             return 5 // セルの上部のスペース
     }
@@ -154,15 +155,8 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myMysteryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
         // add border and color
-        cell.layer.cornerRadius = 20
         // radius & shadow
-        let shadowPath2 = UIBezierPath(rect: cell.bounds)
         cell.layer.masksToBounds = false
-        cell.layer.shadowColor = UIColor.black.cgColor
-        cell.layer.shadowOffset = CGSize(width: CGFloat(1.0), height: CGFloat(3.0))
-        cell.layer.shadowOpacity = 0.5
-        cell.layer.shadowPath = shadowPath2.cgPath
-        cell.backgroundColor = UIColor.white
         cell.clipsToBounds = true
         return cell
     }
@@ -193,26 +187,5 @@ class HomeTableViewCell: UITableViewCell {
         let menu = UIMenu(title: "", image: nil, identifier: nil, options: .displayInline, children: [addCat, shareButton])
         result.menu = menu
         result.showsMenuAsPrimaryAction = true
-    }
-    static let paddingBottom : CGFloat = 15
-    static let paddingRight : CGFloat = 10
-    static let paddingLeft : CGFloat = 10
-    static let height : CGFloat = 478 + paddingBottom
-    
-    class func getHeight() -> CGFloat {
-        return 518
-    }
-
-    override var frame: CGRect {
-        get {
-            return super.frame
-        }
-        set (newFrame) {
-            var frame = newFrame
-            frame.size.height -= HomeTableViewCell.paddingBottom
-            frame.size.width -= HomeTableViewCell.paddingRight
-            frame.size.width -= HomeTableViewCell.paddingLeft
-            super.frame = frame
-        }
     }
 }
