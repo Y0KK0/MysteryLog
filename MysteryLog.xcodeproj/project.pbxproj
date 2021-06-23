@@ -10,6 +10,8 @@
 		605E198931726D44EE92079F /* Pods_MysteryLog_MysteryLogUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 9FD233823D0F72B844A8DFBC /* Pods_MysteryLog_MysteryLogUITests.framework */; };
 		9151B5475152C3F3AB9E2CBD /* Pods_MysteryLogTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CDF74ACCBBCA83080291AD2F /* Pods_MysteryLogTests.framework */; };
 		C492E3D9A87AA90E366B9F12 /* Pods_MysteryLog.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 255D35BDED959490E3A35479 /* Pods_MysteryLog.framework */; };
+		EA2551A22683773F00008493 /* HomeTopCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EA2551A02683773F00008493 /* HomeTopCardViewCell.swift */; };
+		EA2551A32683773F00008493 /* HomeTopCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EA2551A12683773F00008493 /* HomeTopCardViewCell.xib */; };
 		EABD98082681927400F694E8 /* HomeCardViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD98062681927400F694E8 /* HomeCardViewCell.swift */; };
 		EABD98092681927400F694E8 /* HomeCardViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = EABD98072681927400F694E8 /* HomeCardViewCell.xib */; };
 		EABD980B2681A05500F694E8 /* UIColor-Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = EABD980A2681A05500F694E8 /* UIColor-Extension.swift */; };
@@ -54,6 +56,8 @@
 		AECAE1DF295B8FE677E14B71 /* Pods-MysteryLog-MysteryLogUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MysteryLog-MysteryLogUITests.debug.xcconfig"; path = "Target Support Files/Pods-MysteryLog-MysteryLogUITests/Pods-MysteryLog-MysteryLogUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		B557F44C333F2CAAC57A33FF /* Pods-MysteryLog-MysteryLogUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-MysteryLog-MysteryLogUITests.release.xcconfig"; path = "Target Support Files/Pods-MysteryLog-MysteryLogUITests/Pods-MysteryLog-MysteryLogUITests.release.xcconfig"; sourceTree = "<group>"; };
 		CDF74ACCBBCA83080291AD2F /* Pods_MysteryLogTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_MysteryLogTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EA2551A02683773F00008493 /* HomeTopCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTopCardViewCell.swift; sourceTree = "<group>"; };
+		EA2551A12683773F00008493 /* HomeTopCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeTopCardViewCell.xib; sourceTree = "<group>"; };
 		EABD98062681927400F694E8 /* HomeCardViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCardViewCell.swift; sourceTree = "<group>"; };
 		EABD98072681927400F694E8 /* HomeCardViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCardViewCell.xib; sourceTree = "<group>"; };
 		EABD980A2681A05500F694E8 /* UIColor-Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIColor-Extension.swift"; sourceTree = "<group>"; };
@@ -153,20 +157,16 @@
 		EAC1AFA82680E5CE00644F45 /* MysteryLog */ = {
 			isa = PBXGroup;
 			children = (
+				EAE446E42682E62B002A106F /* Extension */,
+				EAE446E32682E61A002A106F /* Xibs */,
+				EAE446E22682E5FC002A106F /* Views */,
+				EAE446E12682E5D2002A106F /* Controller */,
 				EAC1AFA92680E5CE00644F45 /* AppDelegate.swift */,
 				EAC1AFAB2680E5CE00644F45 /* SceneDelegate.swift */,
-				EAC1AFAD2680E5CE00644F45 /* ViewController.swift */,
-				EAC1AFD92680E5F200644F45 /* HomeViewController.swift */,
-				EABD980A2681A05500F694E8 /* UIColor-Extension.swift */,
 				EAC1AFDB2680E5FF00644F45 /* Main.storyboard */,
 				EAC1AFB22680E5D000644F45 /* Assets.xcassets */,
 				EAC1AFB42680E5D000644F45 /* LaunchScreen.storyboard */,
 				EAC1AFB72680E5D000644F45 /* Info.plist */,
-				EABD980C2681A37E00F694E8 /* TabBarController.swift */,
-				EABD98062681927400F694E8 /* HomeCardViewCell.swift */,
-				EABD98072681927400F694E8 /* HomeCardViewCell.xib */,
-				EAE446DD26823424002A106F /* HomeTableCardViewCell.swift */,
-				EAE446DE26823424002A106F /* HomeTableCardViewCell.xib */,
 			);
 			path = MysteryLog;
 			sourceTree = "<group>";
@@ -187,6 +187,44 @@
 				EAC1AFCD2680E5D000644F45 /* Info.plist */,
 			);
 			path = MysteryLogUITests;
+			sourceTree = "<group>";
+		};
+		EAE446E12682E5D2002A106F /* Controller */ = {
+			isa = PBXGroup;
+			children = (
+				EABD980C2681A37E00F694E8 /* TabBarController.swift */,
+				EAC1AFD92680E5F200644F45 /* HomeViewController.swift */,
+				EAC1AFAD2680E5CE00644F45 /* ViewController.swift */,
+			);
+			path = Controller;
+			sourceTree = "<group>";
+		};
+		EAE446E22682E5FC002A106F /* Views */ = {
+			isa = PBXGroup;
+			children = (
+				EA2551A02683773F00008493 /* HomeTopCardViewCell.swift */,
+				EAE446DD26823424002A106F /* HomeTableCardViewCell.swift */,
+				EABD98062681927400F694E8 /* HomeCardViewCell.swift */,
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		EAE446E32682E61A002A106F /* Xibs */ = {
+			isa = PBXGroup;
+			children = (
+				EABD98072681927400F694E8 /* HomeCardViewCell.xib */,
+				EA2551A12683773F00008493 /* HomeTopCardViewCell.xib */,
+				EAE446DE26823424002A106F /* HomeTableCardViewCell.xib */,
+			);
+			path = Xibs;
+			sourceTree = "<group>";
+		};
+		EAE446E42682E62B002A106F /* Extension */ = {
+			isa = PBXGroup;
+			children = (
+				EABD980A2681A05500F694E8 /* UIColor-Extension.swift */,
+			);
+			path = Extension;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -302,6 +340,7 @@
 				EAC1AFDC2680E5FF00644F45 /* Main.storyboard in Resources */,
 				EAC1AFB62680E5D000644F45 /* LaunchScreen.storyboard in Resources */,
 				EAC1AFB32680E5D000644F45 /* Assets.xcassets in Resources */,
+				EA2551A32683773F00008493 /* HomeTopCardViewCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -431,6 +470,7 @@
 			files = (
 				EAC1AFAE2680E5CE00644F45 /* ViewController.swift in Sources */,
 				EABD980B2681A05500F694E8 /* UIColor-Extension.swift in Sources */,
+				EA2551A22683773F00008493 /* HomeTopCardViewCell.swift in Sources */,
 				EABD98082681927400F694E8 /* HomeCardViewCell.swift in Sources */,
 				EAC1AFAA2680E5CE00644F45 /* AppDelegate.swift in Sources */,
 				EAE446DF26823424002A106F /* HomeTableCardViewCell.swift in Sources */,

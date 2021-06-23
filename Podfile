@@ -13,6 +13,7 @@ target 'MysteryLog' do
   pod 'Nuke'
   pod 'ContextMenuSwift'
   pod 'DropDown'
+  pod 'Toaster'
 
   target 'MysteryLogTests' do
     inherit! :search_paths

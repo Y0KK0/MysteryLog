@@ -366,6 +366,7 @@ PODS:
   - nanopb/encode (2.30908.0)
   - Nuke (9.5.0)
   - PromisesObjC (1.2.12)
+  - Toaster (2.3.0)
 
 DEPENDENCIES:
   - ContextMenuSwift
@@ -375,6 +376,7 @@ DEPENDENCIES:
   - Firebase/Firestore
   - Firebase/Storage
   - Nuke
+  - Toaster
 
 SPEC REPOS:
   trunk:
@@ -400,6 +402,7 @@ SPEC REPOS:
     - nanopb
     - Nuke
     - PromisesObjC
+    - Toaster
 
 SPEC CHECKSUMS:
   abseil: 6c8eb7892aefa08d929b39f9bb108e5367e3228f
@@ -424,7 +427,8 @@ SPEC CHECKSUMS:
   nanopb: a0ba3315591a9ae0a16a309ee504766e90db0c96
   Nuke: 6f400a4ea957e09149ec335a3c6acdcc814d89e4
   PromisesObjC: 3113f7f76903778cf4a0586bd1ab89329a0b7b97
+  Toaster: c3473963c78e8cabbf6ea6f11ad0fdaae6f54987
 
-PODFILE CHECKSUM: 3a7e7331e49a3a62535f68ddd053f1f6e5c84ffc
+PODFILE CHECKSUM: fed7a5bb0909038500f098a7dd354acf5c7a02fd
 
 COCOAPODS: 1.10.1

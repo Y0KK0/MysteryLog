@@ -12,9 +12,10 @@ class HomeViewController: UIViewController{
     
     private let cellID = "cellID"
     let cellSpacingHeight: CGFloat = 5
-    
+    let screenRect = UIScreen.main.bounds
     @IBOutlet weak var myMysteryTableView: UITableView!
     @IBOutlet weak var homeCardView: UICollectionView!
+    @IBOutlet weak var homeCardCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
     var viewWidth: CGFloat!
     var viewHeight: CGFloat!
@@ -25,9 +26,7 @@ class HomeViewController: UIViewController{
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        myMysteryTableView.delegate = self
-        myMysteryTableView.dataSource = self
-        edgesForExtendedLayout = []
+//        edgesForExtendedLayout = []
         setupViews()
     }
     
@@ -35,6 +34,9 @@ class HomeViewController: UIViewController{
         myMysteryTableView.tableFooterView = UIView()
         myMysteryTableView.delegate = self
         myMysteryTableView.dataSource = self
+        myMysteryTableView.frame = CGRect(x: 0, y: 0, width: screenRect.width, height: screenRect.height)
+//        homeCardView.frame = CGRect(x: 0, y: 0, width: screenRect.width-20, height: homeCardView.frame.height)
+            
 //        self.parent?.navigationItem.title = "Main"
         self.navigationController?.navigationBar.barTintColor = .rgb(red: 39, green: 49, blue: 69)
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
@@ -45,10 +47,11 @@ class HomeViewController: UIViewController{
 
         homeCardView.delegate = self
         homeCardView.dataSource = self
-        let nib = UINib(nibName: "HomeCardViewCell", bundle: .main)
-        homeCardView.register(nib, forCellWithReuseIdentifier: "homeCardCell")
-        let cardnib = UINib(nibName: "HomeTableCardViewCell", bundle: .main)
-        myMysteryTableView.register(cardnib, forCellReuseIdentifier: cellID)
+        let homeCardnib = UINib(nibName: "HomeCardViewCell", bundle: .main)
+        homeCardView.register(homeCardnib, forCellWithReuseIdentifier: "homeCardCell")
+        let tableCardnib = UINib(nibName: "HomeTableCardViewCell", bundle: .main)
+        myMysteryTableView.register(tableCardnib, forCellReuseIdentifier: cellID)
+        
         //スクロールバーを削除する
         self.myMysteryTableView.showsVerticalScrollIndicator = false;
         self.homeCardView.showsHorizontalScrollIndicator = false;
@@ -73,7 +76,7 @@ class HomeViewController: UIViewController{
         //グラデーションレイヤーをビューの一番下に配置
         self.view.layer.insertSublayer(gradientLayer, at: 0)
         
-        
+        print("debug:tableViewWidth" ,self.myMysteryTableView.frame.size.width)
 
 //
 //        let rigntBarButton = UIBarButtonItem(title: "新規チャット", style: .plain, target: self, action: #selector(tappedNavRightBarButton))
@@ -88,74 +91,59 @@ class HomeViewController: UIViewController{
 
 extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
-        return 2
+        return 1
+        
         
     }
-
+    
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "homeCardCell", for: indexPath) as! HomeCardViewCell
-//        cell.backgroundColor = UIColor.white
+        cell.backgroundColor = UIColor.white
         cell.layer.cornerRadius = 12
         cell.layer.shadowOpacity = 0.4
         cell.layer.shadowRadius = 12
         cell.layer.shadowColor = UIColor.black.cgColor
         cell.layer.shadowOffset = CGSize(width: 8, height: 8)
         cell.layer.masksToBounds = false
-//        cell.titleLabel.text = "\(titleArray[indexPath.row])への旅"
-//        cell.dateLabel.text = "06/08~06/15"
-//        cell.backgroundImageView.image = UIImage(named: photoArray[indexPath.row])
+        print("debug:cell.image width \(cell.backgroundImageView.layer.frame.height)")
         return cell
 
     }
-
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return 10
+        return 24
     }
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-            cellWidth = viewWidth-20
-            cellHeight = viewHeight-200
+            cellWidth = viewWidth-30
+            cellHeight = viewHeight-300
             cellOffset = viewWidth-cellWidth
+        print("debug:cell width is \(cellWidth!)")
+        print("debug:cell Height is \(cellHeight!)")
             return CGSize(width: cellWidth, height: cellHeight)
-        }
-
-    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return UIEdgeInsets(top: -navHeight,left: cellOffset/2,bottom: 0,right: cellOffset/2)
     }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+            return UIEdgeInsets(top:  navHeight-30,left: cellOffset/2,bottom: 0,right: cellOffset/2)
+        }
 
 }
 
 // MARK: - UITableViewDelegate, UITableViewDataSource -
 extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
-    
+    //セルの高さ
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return 80
     }
+    
+    // セルの個数
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
         return 10
     }
     
-    
-    func tableView(tableView: UITableView, heightForRowAtIndexPath indexPath: NSIndexPath) -> CGFloat {
-            return 44 // 適当なセルの高さ
-    }
-    private func tableView(tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
-            return 5 // セルの上部のスペース
-    }
-    private func tableView(tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
-        return 5 // セルの下部のスペース
-    }
-    private func tableView(tableView: UITableView, willDisplayHeaderView view: UIView, forSection section: Int) {
-            view.tintColor = UIColor.clear // 透明にすることでスペースとする
-    }
-    private func tableView(tableView: UITableView, willDisplayFooterView view: UIView, forSection section: Int) {
-            view.tintColor = UIColor.clear // 透明にすることでスペースとする
-    }
-    
+    // セルのあれこれ設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = myMysteryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
-        // add border and color
-        // radius & shadow
+        
         cell.layer.masksToBounds = false
         cell.clipsToBounds = true
         return cell
@@ -169,8 +157,6 @@ class HomeTableViewCell: UITableViewCell {
     @IBOutlet weak var mysteryTitleLabel: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        
-//           backgroundColor = .clear
         mysteryImageView.layer.cornerRadius = 20
     }
     
@@ -189,3 +175,4 @@ class HomeTableViewCell: UITableViewCell {
         result.showsMenuAsPrimaryAction = true
     }
 }
+
