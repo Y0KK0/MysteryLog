@@ -15,6 +15,8 @@
                     <navigationBar key="navigationBar" contentMode="scaleToFill" id="e4Y-CD-LfM">
                         <rect key="frame" x="0.0" y="44" width="414" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
+                        <color key="backgroundColor" systemColor="systemBlueColor"/>
+                        <color key="barTintColor" systemColor="secondarySystemBackgroundColor"/>
                     </navigationBar>
                     <connections>
                         <segue destination="Yji-gf-axO" kind="relationship" relationship="rootViewController" id="Pyc-CU-B21"/>
@@ -24,7 +26,7 @@
             </objects>
             <point key="canvasLocation" x="-825" y="222"/>
         </scene>
-        <!--お気に入り-->
+        <!--気になる-->
         <scene sceneID="UgJ-bz-POE">
             <objects>
                 <viewController id="b97-If-mCu" sceneMemberID="viewController">
@@ -37,11 +39,11 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="お気に入り" image="star.circle.fill" catalog="system" id="QTH-pf-cxZ"/>
+                    <tabBarItem key="tabBarItem" title="気になる" image="checkmark.seal.fill" catalog="system" id="QTH-pf-cxZ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IbC-pu-v0W" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="867" y="526"/>
+            <point key="canvasLocation" x="883" y="528"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="Vyi-on-Rbl">
@@ -57,6 +59,7 @@
                         <segue destination="EhR-Ry-bqh" kind="relationship" relationship="viewControllers" id="dou-lN-dqa"/>
                         <segue destination="b97-If-mCu" kind="relationship" relationship="viewControllers" id="4KS-5v-5dZ"/>
                         <segue destination="vCN-l4-jHq" kind="relationship" relationship="viewControllers" id="dmJ-d7-inq"/>
+                        <segue destination="m4D-CE-6Uk" kind="relationship" relationship="viewControllers" id="WxS-9E-Kri"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="IYP-ol-CM8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -81,24 +84,46 @@
                                 <color key="separatorColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <color key="sectionIndexBackgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <collectionView key="tableHeaderView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="NeZ-Fd-vVE">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="197"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="177"/>
                                     <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="NG8-dO-dYA">
-                                        <size key="itemSize" width="412" height="148"/>
+                                        <size key="itemSize" width="412" height="140"/>
                                         <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                         <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                         <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                     </collectionViewFlowLayout>
                                     <cells>
                                         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="" id="mye-uG-1PH">
-                                            <rect key="frame" x="0.0" y="25" width="412" height="148"/>
+                                            <rect key="frame" x="0.0" y="19" width="412" height="140"/>
                                             <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="Klj-II-e8b">
-                                                <rect key="frame" x="0.0" y="0.0" width="412" height="148"/>
+                                                <rect key="frame" x="0.0" y="0.0" width="412" height="140"/>
                                                 <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
                                             </collectionViewCellContentView>
-                                            <size key="customSize" width="412" height="148"/>
+                                            <size key="customSize" width="412" height="140"/>
+                                        </collectionViewCell>
+                                    </cells>
+                                </collectionView>
+                                <collectionView key="tableFooterView" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" id="mfa-QW-LXA">
+                                    <rect key="frame" x="0.0" y="177" width="414" height="67"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                    <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="MNE-ld-Qnv">
+                                        <size key="itemSize" width="400" height="55"/>
+                                        <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                        <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                        <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                    </collectionViewFlowLayout>
+                                    <cells>
+                                        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="ROi-iz-4Tc">
+                                            <rect key="frame" x="7" y="0.0" width="400" height="55"/>
+                                            <autoresizingMask key="autoresizingMask" flexibleMinX="YES" flexibleMaxX="YES" flexibleMinY="YES" flexibleMaxY="YES"/>
+                                            <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="7lN-dq-SBW">
+                                                <rect key="frame" x="0.0" y="0.0" width="400" height="55"/>
+                                                <autoresizingMask key="autoresizingMask"/>
+                                            </collectionViewCellContentView>
+                                            <size key="customSize" width="400" height="55"/>
                                         </collectionViewCell>
                                     </cells>
                                 </collectionView>
@@ -118,13 +143,33 @@
                         <outlet property="homeCardCollectionViewFlowLayout" destination="NG8-dO-dYA" id="dZT-DJ-OM0"/>
                         <outlet property="homeCardView" destination="NeZ-Fd-vVE" id="1XC-vr-umy"/>
                         <outlet property="myMysteryTableView" destination="JwU-GI-63p" id="2Mp-S8-o6E"/>
+                        <outlet property="mysteryListMenu" destination="mfa-QW-LXA" id="teb-kT-x50"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ckg-3h-WDq" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="882.60869565217399" y="-194.19642857142856"/>
+            <point key="canvasLocation" x="882.60869565217399" y="-171.42857142857142"/>
         </scene>
-        <!--公演一覧-->
+        <!--最新情報-->
+        <scene sceneID="Ksr-AE-BOi">
+            <objects>
+                <viewController id="m4D-CE-6Uk" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Mn1-zP-x0d"/>
+                        <viewControllerLayoutGuide type="bottom" id="g2I-tY-rcL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="m53-ia-70G">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="最新情報" image="newspaper" catalog="system" id="Jaz-jX-UFR"/>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="RkM-gs-qs7" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="883" y="1882"/>
+        </scene>
+        <!--検索-->
         <scene sceneID="3xm-uB-TfO">
             <objects>
                 <viewController useStoryboardIdentifierAsRestorationIdentifier="YES" id="vCN-l4-jHq" customClass="HomeViewController" customModule="MysteryLog" customModuleProvider="target" sceneMemberID="viewController">
@@ -173,7 +218,7 @@
                             <constraint firstItem="Nbc-uk-Jpc" firstAttribute="leading" secondItem="Wjb-W0-VGg" secondAttribute="leading" id="la2-v9-tnu"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="公演一覧" image="list.dash" catalog="system" id="EcS-zr-Xam"/>
+                    <tabBarItem key="tabBarItem" title="検索" image="magnifyingglass" catalog="system" id="EcS-zr-Xam"/>
                     <navigationItem key="navigationItem" id="GRK-nn-3NI"/>
                     <connections>
                         <outlet property="homeCardView" destination="wyX-8j-DpJ" id="CWT-7l-cxa"/>
@@ -182,13 +227,17 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Uma-RK-DNX" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="839" y="1215"/>
+            <point key="canvasLocation" x="883" y="1215"/>
         </scene>
     </scenes>
     <resources>
+        <image name="checkmark.seal.fill" catalog="system" width="128" height="128"/>
         <image name="house.fill" catalog="system" width="128" height="106"/>
-        <image name="list.dash" catalog="system" width="128" height="85"/>
-        <image name="star.circle.fill" catalog="system" width="128" height="121"/>
+        <image name="magnifyingglass" catalog="system" width="128" height="115"/>
+        <image name="newspaper" catalog="system" width="128" height="108"/>
+        <systemColor name="secondarySystemBackgroundColor">
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

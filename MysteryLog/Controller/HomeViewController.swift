@@ -10,11 +10,12 @@ import SwiftUI
 
 class HomeViewController: UIViewController{
     
-    private let cellID = "cellID"
+    private let homeTableCardCell = "homeTableCardCell"
     let cellSpacingHeight: CGFloat = 5
     let screenRect = UIScreen.main.bounds
     @IBOutlet weak var myMysteryTableView: UITableView!
     @IBOutlet weak var homeCardView: UICollectionView!
+    @IBOutlet weak var mysteryListMenu: UICollectionView!
     @IBOutlet weak var homeCardCollectionViewFlowLayout: UICollectionViewFlowLayout!
     
     var viewWidth: CGFloat!
@@ -35,10 +36,6 @@ class HomeViewController: UIViewController{
         myMysteryTableView.delegate = self
         myMysteryTableView.dataSource = self
         myMysteryTableView.frame = CGRect(x: 0, y: 0, width: screenRect.width, height: screenRect.height)
-//        homeCardView.frame = CGRect(x: 0, y: 0, width: screenRect.width-20, height: homeCardView.frame.height)
-            
-//        self.parent?.navigationItem.title = "Main"
-        self.navigationController?.navigationBar.barTintColor = .rgb(red: 39, green: 49, blue: 69)
         self.navigationController?.navigationBar.titleTextAttributes = [.foregroundColor: UIColor.white]
         
         viewWidth = view.frame.width
@@ -47,10 +44,14 @@ class HomeViewController: UIViewController{
 
         homeCardView.delegate = self
         homeCardView.dataSource = self
+        mysteryListMenu.delegate = self
+        mysteryListMenu.dataSource = self
         let homeCardnib = UINib(nibName: "HomeCardViewCell", bundle: .main)
         homeCardView.register(homeCardnib, forCellWithReuseIdentifier: "homeCardCell")
         let tableCardnib = UINib(nibName: "HomeTableCardViewCell", bundle: .main)
-        myMysteryTableView.register(tableCardnib, forCellReuseIdentifier: cellID)
+        myMysteryTableView.register(tableCardnib, forCellReuseIdentifier: homeTableCardCell)
+        let mysteryListMenunib = UINib(nibName: "MysteryListMenuViewCell", bundle: .main)
+        mysteryListMenu.register(mysteryListMenunib, forCellWithReuseIdentifier: "MysteryListMenuCell")
         
         //スクロールバーを削除する
         self.myMysteryTableView.showsVerticalScrollIndicator = false;
@@ -92,8 +93,6 @@ class HomeViewController: UIViewController{
 extension HomeViewController: UICollectionViewDelegate,UICollectionViewDataSource,UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
         return 1
-        
-        
     }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
@@ -142,7 +141,7 @@ extension HomeViewController: UITableViewDelegate, UITableViewDataSource {
     
     // セルのあれこれ設定
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        let cell = myMysteryTableView.dequeueReusableCell(withIdentifier: cellID, for: indexPath)
+        let cell = myMysteryTableView.dequeueReusableCell(withIdentifier: homeTableCardCell, for: indexPath)
         
         cell.layer.masksToBounds = false
         cell.clipsToBounds = true

@@ -1,16 +1,15 @@
 //
-//  HomeCardViewCell.swift
+//  MysteryListViewCell.swift
 //  MysteryLog
 //
-//  Created by Satoshi Yokokawa on 2021/06/22.
+//  Created by Satoshi Yokokawa on 2021/06/26.
 //
 
 import UIKit
 
-class HomeCardViewCell: UICollectionViewCell {
-
-    @IBOutlet weak var gameCount: UILabel!
+class MysteryListViewCell: UICollectionViewCell {
     @IBOutlet weak var backgroundImageView: UIImageView!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
